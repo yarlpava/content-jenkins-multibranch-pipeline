@@ -39,6 +39,7 @@ pipeline {
         sh 'git merge development'
         echo "Git Push to Origin"
         sh 'git push origin master'
+        echo 'Pushing code to master'
       }
     }
     stage('Tagging the Release') {
