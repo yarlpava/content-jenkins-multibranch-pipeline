@@ -41,5 +41,15 @@ pipeline {
         sh 'git push origin master'
       }
     }
+    stage('Tagging the Release') {
+ when {
+ branch 'master'
+ }
+ steps {
+ sh "git tag rectangle-${env.MAJOR_VERSION}.${BUILD_NUMBER}"
+ sh "git push origin rectangle-${env.MAJOR_VERSION}.${BUILD_
+NUMBER}"
+ }
+ }
   }
 }
